@@ -23,7 +23,7 @@ terraform {
   backend "s3" {
     encrypt = true
     bucket = "sfcode021-terraform-state"
-    dynamodb_dynamodb_table = "terraform-state-lock-dynamo"
+    dynamodb_table = "terraform-state-lock-dynamo"
     key = "sfcode021/serverless/state/infra-terraform.state"
     region = "central-eu-1"
   }
