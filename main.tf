@@ -30,11 +30,11 @@ terraform {
   }
 }
 
-resource "aws_dynamodb_table" "main-table" {
+resource "aws_dynamodb_table" "main-data-table" {
   billing_mode     = "PAY_PER_REQUEST"
   hash_key         = "PK"
   range_key        = "SK"
-  name             = "main-table"
+  name             = "main-data-table"
   stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"
 
