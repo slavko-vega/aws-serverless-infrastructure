@@ -1,5 +1,5 @@
 provider "aws" {
-   region = "central-eu-1"
+   region = "eu-central-1"
 }
 
 terraform {
@@ -25,7 +25,7 @@ terraform {
     bucket = "sfcode021-terraform-state"
     dynamodb_table = "terraform-state-lock-dynamo"
     key = "sfcode021/serverless/state/infra-terraform.state"
-    region = "central-eu-1"
+    region = "eu-central-1"
   }
 }
 
