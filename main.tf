@@ -68,7 +68,7 @@ EOF
 
 resource "aws_iam_role_policy" "lambda_policy" {
   name = "lambda_policy_hello_world_service"
-  role = aws_iam_role.lambda_role.id
+  role = aws_iam_role.lambda_role.arn
   policy = <<EOF
 {
     "Version": "2012-10-17",
