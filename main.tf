@@ -115,11 +115,11 @@ resource "aws_lambda_function" "hello_world_service" {
   runtime = "nodejs16.x"
   s3_bucket = "sfcode021-hello-world-artifacts"
   s3_key = "build.zip"
-  environment {
-    variables = {
-      "DYNAMODB_TABLE" = "main-data-table"
-    }
-  }
+  # environment {
+  #   variables = {
+  #     "DYNAMODB_TABLE" = "main-data-table"
+  #   }
+  # }
 }
 
 #############################################
