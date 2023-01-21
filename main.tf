@@ -104,7 +104,7 @@ resource "aws_lambda_function" "hello_world_service" {
   role = aws_iam_role.lambda_role.arn
   handler = "index.handler"
   runtime = "nodejs16.x"
-  s3_bucket = "arn:aws:s3:::sfcode021-hello-world-artifacts"
+  s3_bucket = "sfcode021-hello-world-artifacts"
   s3_key = "build.zip"
   environment {
     variables = {
