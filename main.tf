@@ -112,3 +112,4 @@ resource "aws_iam_role_policy" "lambda_policy" {
     ]
 }
 EOF
+}
