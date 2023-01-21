@@ -68,7 +68,7 @@ EOF
 
 resource "aws_iam_role_policy" "lambda_policy" {
   name = "lambda_policy_hello_world_service"
-  role = aws_iam_role.lambda_role.arn
+  role = aws_iam_role.lambda_role.id
   policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -113,9 +113,9 @@ resource "aws_lambda_function" "hello_world_service" {
   }
 }
 
-#################################################
+################################################
 ## API Gateway
-#################################################
+################################################
 
 resource "aws_apigatewayv2_api" "lambda" {
   name          = "serverless_lambda_gw"
