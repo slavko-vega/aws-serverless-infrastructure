@@ -122,9 +122,9 @@ resource "aws_lambda_function" "hello_world_service" {
   }
 }
 
-################################################
+###############################################
 ## API Gateway
-################################################
+###############################################
 
 resource "aws_apigatewayv2_api" "lambda" {
   name          = "serverless_lambda_gw"
