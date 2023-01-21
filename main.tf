@@ -1,15 +1,14 @@
 provider "aws" {
    region = "eu-central-1"
-   version = "v2.70.0"
 }
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 3.19"
+      version = "~> 4.0"
     }
     random = {
       source  = "hashicorp/random"
@@ -112,6 +111,40 @@ resource "aws_lambda_function" "hello_world_service" {
       "DYNAMODB_TABLE" = "main-data-table"
     }
   }
+}
+
+#################################################
+## API Gateway
+#################################################
+
+resource "aws_apigatewayv2_api" "lambda" {
+  name          = "serverless_lambda_gw"
+  protocol_type = "HTTP"
+}
+
+resource "aws_apigatewayv2_stage" "lambda" {
+  api_id = aws_apigatewayv2_api.lambda.id
+
+  name        = "serverless_lambda_stage"
+  auto_deploy = true
+
+  # access_log_settings {
+  #   destination_arn = aws_cloudwatch_log_group.api_gw.arn
+
+  #   format = jsonencode({
+  #     requestId               = "$context.requestId"
+  #     sourceIp                = "$context.identity.sourceIp"
+  #     requestTime             = "$context.requestTime"
+  #     protocol                = "$context.protocol"
+  #     httpMethod              = "$context.httpMethod"
+  #     resourcePath            = "$context.resourcePath"
+  #     routeKey                = "$context.routeKey"
+  #     status                  = "$context.status"
+  #     responseLength          = "$context.responseLength"
+  #     integrationErrorMessage = "$context.integrationErrorMessage"
+  #     }
+  #   )
+  # }
 }
 
 resource "aws_apigatewayv2_integration" "hello_world" {
