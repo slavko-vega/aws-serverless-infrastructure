@@ -100,7 +100,7 @@ EOF
 }
 
 resource "aws_lambda_function" "hello_world_service" {
-  function_name = "PeopleService"
+  function_name = "HelloWorld"
   role = aws_iam_role.lambda_role.arn
   handler = "index.handler"
   runtime = "nodejs16.x"
@@ -162,11 +162,11 @@ resource "aws_apigatewayv2_route" "hello_world" {
   target    = "integrations/${aws_apigatewayv2_integration.hello_world.id}"
 }
 
-resource "aws_cloudwatch_log_group" "api_gw" {
-  name = "/aws/api_gw/${aws_apigatewayv2_api.lambda.name}"
+# resource "aws_cloudwatch_log_group" "api_gw" {
+#   name = "/aws/api_gw/${aws_apigatewayv2_api.lambda.name}"
 
-  retention_in_days = 30
-}
+#   retention_in_days = 30
+# }
 
 resource "aws_lambda_permission" "api_gw" {
   statement_id  = "AllowExecutionFromAPIGateway"
