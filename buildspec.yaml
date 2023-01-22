@@ -30,7 +30,7 @@ phases:
 
   build:
     commands:
-      - export TF_LOG="DEBUG"
+      # - export TF_LOG="DEBUG"
       - terraform $TF_COMMAND -auto-approve -lock=false
 
   post_build:
