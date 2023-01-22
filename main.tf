@@ -164,14 +164,14 @@ resource "aws_apigatewayv2_integration" "hello_world" {
   integration_method = "POST"
 }
 
-resource "aws_apigatewayv2_route" "hello_world" {
+resource "aws_apigatewayv2_route" "hello_world_get" {
   api_id = aws_apigatewayv2_api.lambda.id
 
   route_key = "GET /hello"
   target    = "integrations/${aws_apigatewayv2_integration.hello_world.id}"
 }
 
-resource "aws_apigatewayv2_route" "hello_world" {
+resource "aws_apigatewayv2_route" "hello_world_post" {
   api_id = aws_apigatewayv2_api.lambda.id
 
   route_key = "POST /hello"
