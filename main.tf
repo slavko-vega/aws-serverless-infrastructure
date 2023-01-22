@@ -127,7 +127,7 @@ resource "aws_lambda_function" "hello_world_service" {
 #############################################
 
 resource "aws_apigatewayv2_api" "lambda" {
-  name          = "serverless_lambda_gw"
+  name          = "hello_world_lambda_gw"
   protocol_type = "HTTP"
 }
 
